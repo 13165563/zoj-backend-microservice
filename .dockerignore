@@ -1,0 +1,66 @@
+# Docker 忽略文件
+# 排除不需要复制到 Docker 镜像中的文件
+
+# Git 相关
+.git
+.gitignore
+.gitattributes
+
+# IDE 相关
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+.settings/
+.project
+.classpath
+
+# Maven 相关
+target/
+.mvn/wrapper/maven-wrapper.jar
+.mvn/wrapper/maven-wrapper.properties
+!target/*.jar
+
+# 日志文件
+*.log
+logs/
+
+# 临时文件
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# 操作系统相关
+.DS_Store
+Thumbs.db
+
+# Docker 相关
+Dockerfile*
+docker-compose*.yml
+.dockerignore
+
+# 文档
+README.md
+*.md
+docs/
+
+# 测试相关
+src/test/
+
+# 环境配置
+.env
+.env.local
+.env.production
+env.example
+
+# 备份文件
+*.bak
+*.backup
+
+# 压缩文件
+*.zip
+*.tar.gz
+*.rar

@@ -1,0 +1,68 @@
+server:
+  port: 8103
+  servlet:
+    context-path: /api/judge
+
+spring:
+  application:
+    name: zoj-backend-judge-service
+  main:
+    allow-bean-definition-overriding: true
+    allow-circular-references: true  # 允许循环引用
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.213.128:8848
+        username: 
+        password: 
+        prefer-ip-address: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.213.128:3306/zoj
+    username: root
+    password: 123
+  session:
+    store-type: redis
+  rabbitmq:
+    host: 192.168.213.128
+    port: 5672
+    username: itheima
+    password: 123321
+    virtual-host: /
+  data:
+    redis:
+      host: 192.168.213.128
+      port: 6379
+      timeout: 10000ms
+      database: 0
+
+# 代码沙箱配置
+codesandbox:
+  remote:
+    base-url: http://192.168.213.128:8080
+    access-key: zoj
+    secret-key: secretKey
+    auth-type: simple
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-field: isDelete
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+knife4j:
+  enable: true
+  production: false
+  basic:
+    enable: false
+
+logging:
+  level:
+    com.zluolan.zojbackendjudgeservice: debug

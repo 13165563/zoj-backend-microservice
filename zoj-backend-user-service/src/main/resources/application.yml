@@ -1,0 +1,62 @@
+server:
+  port: 8101
+  servlet:
+    context-path: /api/user
+
+spring:
+  application:
+    name: zoj-backend-user-service
+  main:
+    allow-bean-definition-overriding: true
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.213.128:8848
+        username: 
+        password: 
+        prefer-ip-address: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.213.128:3306/zoj
+    username: root
+    password: 123
+  data:
+    redis:
+      host: 192.168.213.128
+      port: 6379
+      database: 0
+      timeout: 10000ms
+  session:
+    store-type: redis
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-field: isDelete # 全局逻辑删除的实体字段名
+      logic-delete-value: 1 # 逻辑已删除值（默认为1）
+      logic-not-delete-value: 0 # 逻辑未删除值（默认为0）
+  mapper-locations: classpath*:/mapper/**/*.xml
+
+
+# 微信相关
+wx:
+  # 微信公众平台
+  mp:
+    token: xxxxxx
+    aesKey: xxxxxx
+    appId: xxxxxx
+    secret: xxxxxx
+    config-storage:
+      http-client-type: HttpClient
+      key-prefix: wx
+      redis:
+        host: 192.168.213.128
+        port: 6379
+        database: 0
+      type: Memory
