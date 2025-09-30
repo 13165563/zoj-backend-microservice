@@ -1,0 +1,53 @@
+/* src/assets/main.css */
+@import './base.css';
+
+#app {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  height: 100vh;
+  background: #ffffff;
+}
+
+a,
+.green {
+  text-decoration: none;
+  color: black;
+  transition: 0.4s;
+  padding: 3px;
+}
+
+@media (hover: hover) {
+  a:hover {
+    background-color: #f0f0f0;
+  }
+}
+
+/* 移除之前的修复样式 */
+.arco-menu-collapse {
+  background-color: #ffffff !important;
+}
+
+.arco-menu-collapse .arco-menu-inner {
+  background-color: #ffffff !important;
+}
+
+.arco-layout-sider-collapse .arco-layout-sider-children {
+  background-color: #ffffff !important;
+}
+
+@media (min-width: 1024px) {
+  body {
+    display: flex;
+    place-items: center;
+    background: #ffffff;
+  }
+
+  #app {
+    display: flex;
+    width: 100%;
+    padding: 0;
+    background: #ffffff;
+  }
+}
